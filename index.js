@@ -44,9 +44,9 @@ app.get('/delete_product',service.delete_product);
 
 app.get('/add_product',service.add_product); */
 
-const port = process.env.PORT || 3001
+const PORT = process.env.PORT || 5000;
 
-var server = app.listen(port,function(){
+var server = app.listen(PORT,function(){
     var host=server.address().address;
     var port=server.address().port;
 //console.log(host,port)
