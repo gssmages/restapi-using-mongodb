@@ -50,5 +50,5 @@ var server = app.listen(PORT,function(){
     var host=server.address().address;
     var port=server.address().port;
 //console.log(host,port)
-    console.log("Node API listening on http://%s:%s",host,port)
+   // console.log("Node API listening on http://%s:%s",host,port)
 })
