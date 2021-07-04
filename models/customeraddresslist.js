@@ -28,7 +28,11 @@ const customeraddrSchema = new mongoose.Schema({
     geolatlang:{
         type:String,
         required:true,
-    } 
+    },
+    default:{
+        type:Boolean,
+        default:false
+    }
 },
 {collection: "CustomerAddress"}
 )

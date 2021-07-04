@@ -10,8 +10,8 @@ var customeraddress = require('./routerss/customeraddress');
 var admin = require('./routerss/admin');
 const cors = require('cors');
 
-//var url='mongodb://localhost/test';
-var url ='mongodb+srv://MageshBabu:babu123$@cluster0.6a4jc.mongodb.net/FoodOrderDB?retryWrites=true&w=majority';
+var url='mongodb://localhost/test';
+//var url ='mongodb+srv://MageshBabu:babu123$@cluster0.6a4jc.mongodb.net/FoodOrderDB?retryWrites=true&w=majority';
 var app=express();
 
 mongoose.connect(url,{useUnifiedTopology: true,useNewUrlParser:true})

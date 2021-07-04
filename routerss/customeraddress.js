@@ -45,4 +45,20 @@ router.post('/', async(req,res) => {
         res.send('Error ' + err)
     }
 })
+router.patch('/update/:id',async(req,res)=> {
+    try{
+       /*  const customeraddresslist = await custaddress.find()
+        customeraddresslist.default = false;
+        const custaddfullsave = await customeraddresslist.save()
+         */
+        const result = await custaddress.updateMany({}, {$set: {"default": false}});
+        const custaddresssave = await custaddress.findById(req.params.id) 
+        custaddresssave.default = req.body.default;
+        const custaddsave = await custaddresssave.save()
+        res.json(custaddsave)   
+    }catch(err){
+        res.send('Error')
+    }
+
+})
 module.exports = router
