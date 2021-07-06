@@ -47,11 +47,8 @@ router.post('/', async(req,res) => {
 })
 router.patch('/update/:id',async(req,res)=> {
     try{
-       /*  const customeraddresslist = await custaddress.find()
-        customeraddresslist.default = false;
-        const custaddfullsave = await customeraddresslist.save()
-         */
-        const result = await custaddress.updateMany({}, {$set: {"default": false}});
+      
+        const result = await custaddress.updateMany({custid:req.body.custid}, {$set: {"default": false}});
         const custaddresssave = await custaddress.findById(req.params.id) 
         custaddresssave.default = req.body.default;
         const custaddsave = await custaddresssave.save()
