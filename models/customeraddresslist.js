@@ -1,6 +1,18 @@
 const mongoose = require('mongoose')
 
 const customeraddrSchema = new mongoose.Schema({
+    name: {
+        type: String,
+        required: true
+    },
+    mobile:{
+        type:String,
+        required:true
+    },
+    email:{
+        type:String,
+        required:true
+    },
     custid: {
         type: String,
         required: true

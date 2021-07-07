@@ -18,6 +18,22 @@ router.get('/:id', async(req,res) => {
         res.send('Error ' + err)
     }
 })
+router.get('/custid/:custid', async(req,res) => {
+    try{
+       const orders = await orderlist.find({custid: req.params.custid})
+       res.json(orders)
+    }catch(err){
+        res.send('Error ' + err)
+    }
+})
+router.get('/deliverymanid/:deliverymanid', async(req,res) => {
+    try{
+       const orders = await orderlist.find({deliverymanid: req.params.deliverymanid})
+       res.json(orders)
+    }catch(err){
+        res.send('Error ' + err)
+    }
+})
 router.post('/', async(req,res) => {
 
     const order = new orderlist({

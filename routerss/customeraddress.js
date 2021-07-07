@@ -29,6 +29,9 @@ router.get('/custid/:custid', async(req,res) => {
 })
 router.post('/', async(req,res) => {
     const custaddresssave = new custaddress({
+        name:req.body.name,
+        mobile: req.body.mobile,
+        email: req.body.email,
         custid: req.body.custid,
         location: req.body.location,
         doorno:req.body.doorno,

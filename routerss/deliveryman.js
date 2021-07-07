@@ -18,6 +18,19 @@ router.get('/:id', async(req,res) => {
         res.send('Error ' + err)
     }
 })
+router.post('/login', async(req,res) => {
+    try{
+        var query = {}
+if(req.body.mobile) {
+  query = {$and:[{mobile:{$regex: req.body.mobile, $options: 'i'}},{password:{$regex: req.body.password, $options: 'i'}}]}
+
+}
+       const delmanlist = await deliveryman.find(query)
+       res.json(delmanlist)
+    }catch(err){
+        res.send('Error ' + err)
+    }
+})
 router.post('/', async(req,res) => {
     const delmansave = new deliveryman({
         location: req.body.location,
