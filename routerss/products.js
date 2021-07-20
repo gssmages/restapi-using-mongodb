@@ -10,6 +10,14 @@ router.get('/', async(req,res) => {
         res.send('Error ' + err)
     }
 })
+router.get('/all', async(req,res) => {
+    try{
+       const productlist = await prodlist.find()
+       res.json(productlist)
+    }catch(err){
+        res.send('Error ' + err)
+    }
+})
 router.get('/:id', async(req,res) => {
     try{
        const productlist = await prodlist.findById(req.params.id)

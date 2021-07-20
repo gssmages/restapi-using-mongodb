@@ -25,12 +25,19 @@ const orderSchema = new mongoose.Schema({
     deliverymanid: {
         type: String,
     },
+    deliverymanname: {
+        type: String,
+    },
     status: {
         type: String,
         required: true,
     },
     address:[{}],
     totalqty:{
+        type:String,
+        required:true
+    },
+    totalamt:{
         type:String,
         required:true
     },

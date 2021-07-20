@@ -41,6 +41,7 @@ router.post('/', async(req,res) => {
         address1:req.body.address1,
         address2:req.body.address2,
         area:req.body.area,
+        password:req.body.password,
         Active:req.body.Active     
     })
 
@@ -50,5 +51,25 @@ router.post('/', async(req,res) => {
     }catch(err){
         res.send('Error ' + err)
     }
+})
+router.patch('/:id',async(req,res)=> {
+    try{
+        const delverymanlist = await deliveryman.findById(req.params.id) 
+        delverymanlist.name = req.body.name,
+        delverymanlist.mobile = req.body.mobile,
+        delverymanlist.email = req.body.email,
+        delverymanlist.doorno = req.body.doorno,
+        delverymanlist.address1 = req.body.address1,
+        delverymanlist.address2 = req.body.address2,
+        delverymanlist.area = req.body.area,
+        delverymanlist.location = req.body.location,
+        delverymanlist.Active = req.body.Active,
+        delverymanlist.password = req.body.password
+        const delmanupdate = await delverymanlist.save()
+        res.json(delmanupdate)   
+    }catch(err){
+        res.send('Error')
+    }
+
 })
 module.exports = router
